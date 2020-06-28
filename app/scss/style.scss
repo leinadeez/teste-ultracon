@@ -1,4 +1,136 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap');
+@font-face {
+    font-family: 'sky-icons';
+    src: url('./fonts/SKY-Icon-Font.woff') format("woff");
+}
+html {
+    font-size: 16px;
+    
+}
 body {
-    background-color: #FAFAFF;
+    background-color: #fff;
+    font-size: 1rem;
+    font-family: 'Roboto', Arial;
+    color: #6f6f6f;
+}
+header.navbar {
+    padding: 0;
+    width:100%;    
+    border-bottom: 1px solid #e5e5e5;
+    background-color: #f1f2fa;
+    nav {
+        .row {
+            width:100%;
+        }
+        #mainLogo {
+            width: 84px;
+            height: 56px;
+            background: url('./images/logo-sky.svg') no-repeat 0 center;
+            text-indent: -9999px;
+            padding: 0;
+        }
+        button {
+            font-family: 'sky-icons' !important;            
+            width:1.5rem;
+            height:1.5rem;
+            border:0;
+            color:#000;
+            border-radius:50%;
+            padding: 0;
+            font-size: 1rem;
+            margin:14px 5px;
+        }
+        button:hover {
+            background-color:#e3e3eb;
+        }        
+        #contraste span::before {
+            content: "\e91f";
+        }
+        #reduzTexto span::before {
+            content: "\e91d";
+        }
+        #ampliaTexto span::before {
+            content: "\e91e";
+        }
+    }
+}
+#menuCategoria {
+    width:100%;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.4);
+    margin-bottom: 20px;
+    ul {
+        margin:0;
+        padding: 0;
+        list-style: none none;
+        li {
+            text-align: center;
+            height: 50px;
+            line-height:50px;
+            a {
+                color:#6f6f6f;
+                font-weight: bold;
+            }
+            a:hover {
+                text-decoration: none;
+            }
+        }
+        .menuAtivo {
+            border-bottom: 4px solid #f35c58;
+            a {
+                color:#f35c58;
+            }
+        }
+        li:hover {
+            background:#ddd;
+        }
+    }
+}
+.categorias {
+    #contemFilmes {
+            width: 100%;
+            overflow: hidden;
+        ul {
+            display: flex;
+            padding: 0;
+            list-style: none none;            
+            li {
+                width: 150px;
+                margin-right:4px;
+                height: 225px;
+                position: relative;
+                .cover {
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 4px;
+                }
+                .lock {
+                    width: 24px;
+                    height: 24px; 
+                    position: absolute;
+                    top: 8px;
+                    right: 8px;
+                }
+            }
+        }
+        
+    }
 }
 
+
+#mainFooter {
+    background-color: #f1f2fa;
+    .navbar {
+        padding: 0;
+        width:100%; 
+        border-top: 1px solid #d9dae1;
+        border-bottom: 1px solid #d9dae1;
+        #footerLogo {
+            width: 84px;
+            height: 56px;
+            background: url('./images/logo-sky-rodape.svg') no-repeat 0 center;
+            text-indent: -9999px;
+            padding: 0;
+        } 
+    }
+    
+}

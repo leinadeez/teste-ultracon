@@ -1,6 +1,5 @@
 const gulp = require('gulp')
 const sass = require('gulp-sass')
-const babel = require('gulp-babel')
 const uglify = require('gulp-uglify')
 const eslint = require('gulp-eslint')
 
@@ -19,20 +18,29 @@ gulp.task('lint', function() {
         }))
         .pipe(eslint.format())
         .pipe(eslint.failOnError())
-        .pipe(babel({
-            presets: ["@babel/preset-env"]
+        .pipe(gulp.dest('dist/'))
+})
+
+gulp.task('uglify', function() {
+    return gulp.src('app/scripts/*.js')
+        .pipe(eslint({
+            'rules': {
+                'semi': [1, 'never']
+            }
         }))
+        .pipe(eslint.format())
+        .pipe(eslint.failOnError())
         .pipe(uglify())
         .pipe(gulp.dest('dist/'))
 })
 
 gulp.task('watch', function(){
     gulp.watch('app/scss/*.scss', gulp.series('sass'))
-    gulp.watch('app/scripts/*.js', gulp.series('lint'))
+    gulp.watch('app/scripts/main.js', gulp.series('lint'))
 })
 
 gulp.task('build', gulp.series(
-    'sass', 'lint'
+    'sass', 'uglify'
 ))
 
 gulp.task('default', gulp.series('build'))

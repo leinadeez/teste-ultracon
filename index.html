@@ -6,10 +6,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>SKY - FrontEnd Test</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="./dist/style.css">
 </head>
 <body>
-    FIRST COMMIT =D
+    <header class="navbar">
+        <nav class="container">
+            <div class="row">
+                <div class="col-1">
+                    <a href="" class="navbar-brand" id="mainLogo">a</a>
+                </div>
+                <div class="col-2">
+                    <button id="contraste">
+                        <span></span>
+                    </button>            
+                    <button id="reduzTexto">
+                        <span></span>
+                    </button>
+                    <button id="ampliaTexto">
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <nav id="menuCategoria">
+        <ul class="row">
+            <li class="col menuAtivo"><a href="#">Filmes</a></li>
+            <li class="col"><a href="#">Séries</a></li>
+            <li class="col"><a href="#">Canais</a></li>
+        </ul>
+    </nav>
+    <section class="categorias">
+        <h2 id="tituloCategoria"></h2>
+        <div id="contemFilmes">
+            <ul id="listaFilmes"></ul>
+        </div>
+        
+    </section>
+    <footer id="mainFooter">
+        <nav class="navbar">
+            <div class="container">
+                <div class="row">
+                    <div class="col-1">
+                        <a href="" class="navbar-brand" id="footerLogo">a</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </footer>
     <script src="./dist/main.js"></script>
 </body>
 </html>
