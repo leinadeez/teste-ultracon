@@ -28,13 +28,37 @@ async function buscaAtracoes() {
 }
 
 const popula = (atracoes) => {
-    let list = document.querySelector('#listaFilmes')
-    console.log(atracoes)
-    document.querySelector('#tituloCategoria').innerHTML = atracoes[2].title
-    atracoes[2].movies.forEach((obj, i) => {
-        list.innerHTML += `<li><a href="..."><img class="cover" src="${obj.images[0].url}" /></a><img class="${obj.isBlocked ? 'lock': ''}" src="./dist/images/lock.svg" /></li>`
-    })
-    list.style.width = `${(154 * atracoes[2].movies.length)}px`
+    let categorias = []
     
-    //document.querySelector('#contemFilmes')
+    atracoes[2].movies.forEach((obj) => {
+        let movieCategories = obj.categories.split(', ') 
+         movieCategories.forEach((cat) => {
+            categorias.push(cat)
+        })        
+    })
+    
+    const categoriasFinais = ([...new Set(categorias)])
+
+    const secaoCategoria = document.querySelector('#listaCategorias')
+
+    categoriasFinais.forEach((obj,i) => {
+        secaoCategoria.innerHTML += `<div class="categoria"><h2 id="tituloCategoria">${obj}</h2><div class="contemFilmes"><ul class="listaFilmes" id="lista_${i}"></ul></div></div>`
+    })
+
+    let nodeList = document.querySelectorAll('.listaFilmes')    
+    
+    atracoes[2].movies.forEach((movie) => {
+        movieCats = movie.categories.split(', ')
+        movieCats.forEach((cat) => {
+            let indexCat = categoriasFinais.indexOf(cat)
+            document.querySelector(`#lista_${indexCat}`).innerHTML += `<li><a href="#"><img class="cover" src="${movie.images[0].url}" /></a><img class="${movie.isBlocked ? 'lock': 'unlock'}" src="./dist/images/lock.svg" /></li>`
+        })
+    })
+
+    let contemListas = document.querySelectorAll('.listaFilmes')
+
+    contemListas.forEach((node) => {
+        node.style.width = (node.childElementCount)*154 +"px"
+    })
+
 }

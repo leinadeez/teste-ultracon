@@ -85,10 +85,12 @@ header.navbar {
         }
     }
 }
-.categorias {
-    #contemFilmes {
+#listaCategorias {
+    .categoria {
+        .contemFilmes {
             width: 100%;
             overflow: hidden;
+        }
         ul {
             display: flex;
             padding: 0;
@@ -110,9 +112,11 @@ header.navbar {
                     top: 8px;
                     right: 8px;
                 }
+                .unlock {
+                    display: none;
+                }
             }
-        }
-        
+        }        
     }
 }
 
