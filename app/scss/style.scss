@@ -155,12 +155,11 @@ header.navbar {
     .categoria {        
         position: relative;
         padding-left: 5.275%;
-        .backSlide {         
+        button {
             font-family: 'sky-icons' !important;  
             font-size:24px;
             position: absolute;
             top: 100px;
-            left: -32px;
             width: 64px;
             height: 64px;
             border-radius: 32px;
@@ -169,6 +168,10 @@ header.navbar {
             color: #fff;
             border: 0;
             opacity: 0;
+            z-index: 10;
+        }
+        .backSlide {
+            left: -32px;
         }
         .backSlide:hover { 
             background-color:#43494b;   
@@ -181,19 +184,7 @@ header.navbar {
             content: "\e918";
         }
         .forwardSlide {         
-            font-family: 'sky-icons' !important;  
-            font-size:24px;
-            position: absolute;
-            top: 100px;
             right: -32px;
-            width: 64px;
-            height: 64px;
-            border-radius: 32px;
-            transition: ease;
-            transition-duration: 200ms;
-            color: #fff;
-            border: 0;
-            opacity: 0;
         }
         .forwardSlide:hover { 
             background-color: #43494b;   
@@ -216,7 +207,10 @@ header.navbar {
         ul {
             display: flex;
             padding: 0;
-            list-style: none none;            
+            list-style: none none;       
+            
+            transition: ease;
+            transition-duration: 200ms;     
             li {
                 width: 150px;
                 margin-right:4px;
@@ -329,3 +323,14 @@ header.navbar {
     font-size: 0.9rem;
     padding: 20px 0 10px 0;
 }
+
+@media only screen and (max-width: 570px) {
+    .forwardSlide {
+        background-color: #43494b;   
+        opacity: 1!important;
+    }
+    .backSlide {
+        background-color: #43494b;   
+        opacity: 1!important;
+    }
+  }

@@ -28,13 +28,31 @@ function toggleContraste() {
     
 }
 
-async function init() {
-    let atracoes = await buscaAtracoes()
-    popula(atracoes)
+function avancaSlide(lista) {
+    let margin = parseInt(lista.style.marginLeft.slice(0,-2))
+    let coverPerScreen = Math.floor(window.innerWidth / 154) 
 
-    
+    if (margin > -((lista.childElementCount - coverPerScreen+1) * 154)) {
+        margin -= 154 
+    }
+    lista.style.marginLeft = margin + "px"
 }
 
+function voltaSlide(lista) {
+    let margin = parseInt(lista.style.marginLeft.slice(0,-2))
+
+    if (margin < 0) {
+        margin += 154        
+    } else if (margin < 0 && margin > -154) {
+        margin = 0
+    }    
+    lista.style.marginLeft = margin + "px"
+}
+
+async function init() {
+    let atracoes = await buscaAtracoes()
+    popula(atracoes)    
+}
 
 async function buscaAtracoes() {
     let data
@@ -72,11 +90,11 @@ const popula = (atracoes) => {
     const secaoCategoria = document.querySelector('#listaCategorias')
 
     categoriasFinais.forEach((obj,i) => {
-        secaoCategoria.innerHTML += `<div class="categoria"><h2 id="tituloCategoria">${obj}</h2><div class="contemFilmes"><button id="" class="backSlide"><span></span></button><ul class="listaFilmes" id="lista_${i}"></ul><button class="forwardSlide"><span></span></button></div></div>`
+        secaoCategoria.innerHTML += `<div class="categoria"><h2 id="tituloCategoria">${obj}</h2><div class="contemFilmes"><button class="backSlide" onclick="voltaSlide(lista_${i})"><span></span></button><ul class="listaFilmes" id="lista_${i}"></ul><button class="forwardSlide" onclick="avancaSlide(lista_${i})"><span></span></button></div></div>`
     })
     
     atracoes[2].movies.forEach((movie) => {
-        movieCats = movie.categories.split(', ')
+        let movieCats = movie.categories.split(', ')
         movieCats.forEach((cat) => {
             let indexCat = categoriasFinais.indexOf(cat)
             document.querySelector(`#lista_${indexCat}`).innerHTML += `<li><a href="#"><img class="cover" src="${movie.images[0].url}" /></a><img class="${movie.isBlocked ? 'lock': 'unlock'}" src="./dist/images/lock.svg" /></li>`
@@ -87,6 +105,7 @@ const popula = (atracoes) => {
 
     contemListas.forEach((node) => {
         node.style.width = (node.childElementCount)*154 +"px"
+        node.style.marginLeft = 0
     })
 
 }

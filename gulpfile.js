@@ -1,7 +1,7 @@
 const gulp = require('gulp')
 const sass = require('gulp-sass')
-const uglify = require('gulp-uglify')
 const eslint = require('gulp-eslint')
+var minify = require('gulp-minify')
 
 gulp.task('sass', function() {
     return gulp.src('app/scss/*.scss')
@@ -30,7 +30,7 @@ gulp.task('uglify', function() {
         }))
         .pipe(eslint.format())
         .pipe(eslint.failOnError())
-        .pipe(uglify())
+        .pipe(minify())
         .pipe(gulp.dest('dist/'))
 })
 
