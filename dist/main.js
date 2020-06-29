@@ -1,8 +1,38 @@
 init()
 
+let contraste = false
+let textSize = 16
+
+function reduzTexto() {
+    if (textSize > 10) {
+        textSize--
+        document.querySelector('html').style.fontSize = textSize + "px"
+    }    
+}
+
+function ampliaTexto() {
+    if (textSize < 22) {
+        textSize++
+        document.querySelector('html').style.fontSize = textSize + "px"
+    }    
+}
+
+function toggleContraste() {
+    if (contraste) {
+        contraste = false
+        document.querySelector('body').classList.remove('contraste')
+    } else {
+        contraste = true
+        document.querySelector('body').classList.add('contraste')
+    }
+    
+}
+
 async function init() {
     let atracoes = await buscaAtracoes()
     popula(atracoes)
+
+    
 }
 
 
@@ -42,10 +72,8 @@ const popula = (atracoes) => {
     const secaoCategoria = document.querySelector('#listaCategorias')
 
     categoriasFinais.forEach((obj,i) => {
-        secaoCategoria.innerHTML += `<div class="categoria"><h2 id="tituloCategoria">${obj}</h2><div class="contemFilmes"><ul class="listaFilmes" id="lista_${i}"></ul></div></div>`
+        secaoCategoria.innerHTML += `<div class="categoria"><h2 id="tituloCategoria">${obj}</h2><div class="contemFilmes"><button id="" class="backSlide"><span></span></button><ul class="listaFilmes" id="lista_${i}"></ul><button class="forwardSlide"><span></span></button></div></div>`
     })
-
-    let nodeList = document.querySelectorAll('.listaFilmes')    
     
     atracoes[2].movies.forEach((movie) => {
         movieCats = movie.categories.split(', ')

@@ -13,17 +13,17 @@
     <header class="navbar">
         <nav class="container">
             <div class="row">
-                <div class="col-1">
+                <div class="col-md-2 col-sm-3">
                     <a href="" class="navbar-brand" id="mainLogo">a</a>
                 </div>
-                <div class="col-2">
-                    <button id="contraste">
+                <div class="col-md-3 d-none d-sm-none d-md-block">
+                    <button onclick="toggleContraste()" id="contraste">
                         <span></span>
                     </button>            
-                    <button id="reduzTexto">
+                    <button onclick="reduzTexto()" id="reduzTexto">
                         <span></span>
                     </button>
-                    <button id="ampliaTexto">
+                    <button onclick="ampliaTexto()" id="ampliaTexto">
                         <span></span>
                     </button>
                 </div>
@@ -32,9 +32,9 @@
     </header>
     <nav id="menuCategoria">
         <ul class="row">
-            <li class="col menuAtivo"><a href="#">Filmes</a></li>
-            <li class="col"><a href="#">Séries</a></li>
-            <li class="col"><a href="#">Canais</a></li>
+            <li class="col-md-4 d-none d-sm-none d-md-block menuAtivo"><a href="#">Filmes</a></li>
+            <li class="col-md-4 d-none d-sm-none d-md-block"><a href="#">Séries</a></li>
+            <li class="col-md-4 d-none d-sm-none d-md-block"><a href="#">Canais</a></li>
         </ul>
     </nav>
     <section id="listaCategorias">              
@@ -49,7 +49,73 @@
                 </div>
             </div>
         </nav>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-12">
+                    <a href="https://www.sky.com.br/app" id="skyApp" target="_blank">
+                        <img src="./dist/images/LogoAppSKY.png" alt="" />
+                        <p>Baixe no seu celular o app SKY e divirta-se.</p>
+                    </a>
+                    <div id="stores">
+                        <button id="apple"></button>
+                        <button id="google"></button>
+                    </div>
+                </div>
+                <div class="col-md-3 col-12 links">
+                    <h3>Sobre</h3>
+                    <ul>
+                        <li><a href="#">Nossa história</a></li>
+                        <li><a href="#">Imprensa</a></li>
+                        <li><a href="#">Prêmios conquistados</a></li>
+                        <li><a href="#">Credenciamento</a></li>
+                        <li><a href="#">Trabalhe com a gente</a></li>
+                        <li><a href="#">Promoção</a></li>
+                    </ul>
+                    <h3>Ajuda</h3>
+                    <ul>
+                        <li><a href="#">Central de ajuda</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 col-12 links">
+                    <h3>Nossas responsabilidades</h3>
+                    <ul>
+                        <li><a href="#">Conselho aos usuários</a></li>
+                        <li><a href="#">Pesquisa Anatel</a></li>
+                        <li><a href="#">Relatórios de transparência</a></li>
+                        <li><a href="#">Responsabilidade Social</a></li>
+                        <li><a href="#">Acessibilidade</a></li>
+                    </ul>
+                    <h3><a href="#">SKY Empresas</a></h3>
+                </div>
+            </div>            
+        </div>
     </footer>
+    <footer class="container" id="bottomLinks">
+        <div class="row">
+            <div class="col-12">
+                <a href="#">Início</a>
+                 | 
+                <a href="#">Política de Privacidade</a>
+                 | 
+                <a href="#">Contratos gerais</a>
+                 | 
+                <a href="#">Contratos Pré-pago</a>
+                 | 
+                <a href="#">Cancelamento</a>
+                 | 
+                <a href="#">Ouvidoria</a>
+                 | 
+                <a href="#">Consumidor.gov</a>
+            </div>
+        </div>
+    </footer>
+    <section id="disclaimers">
+        <div class="container">
+            <div class="row">
+                <p class="col-12">® Todos os direitos reservados 2018. Todas as marcas SKY e qualquer propriedade intelectual inserida nelas são de propriedade da SKY Internacional AG e usadas pela SKY Serviços de Banda Larga LTDA. mediante licença</p>
+            </div>
+        </div>
+    </section>
     <script src="./dist/main.js"></script>
 </body>
 </html>

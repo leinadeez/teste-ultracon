@@ -7,6 +7,71 @@ html {
     font-size: 16px;
     
 }
+body.contraste {
+    background-color: #1b2021;
+    color: #fff;
+    header.navbar {
+        background-color: #32383a;
+        border-bottom: 1px solid #4e5354;
+    }
+    #menuCategoria {
+        background-color: #32383a;
+        ul {
+            li a {
+                color: #ddd;
+            }
+            li:hover {
+                background-color: #22282a;
+            }
+        }
+    }    
+    #mainFooter {
+        background-color: #32383a;
+        .navbar {
+            border-top: 1px solid #4e5354;
+            border-bottom: 1px solid #4e5354;
+        }
+        #skyApp {
+            color:#ddd;
+        }
+        #stores {
+            button:hover, button:focus {
+                filter: invert(27%) sepia(51%) saturate(2878%) hue-rotate(305deg) brightness(104%) contrast(97%);
+            }
+            #apple {
+                background: url('./images/button-apple-store-dark-default.svg') no-repeat;            
+            }
+            #google {
+                background: url('./images/button-google-play-dark-default.svg') no-repeat;
+            }
+        }
+        .links {
+            h3 {
+                color: rgba(255, 255, 255, 0.4);
+                a {
+                    color: rgba(255, 255, 255, 0.8);
+                }
+            }
+            ul {
+                li {
+                    a {
+                        color:#fff;
+                    }
+                }
+            }
+        } 
+    }
+    #bottomLinks {
+        background-color:#1b2021;
+        a {
+            color:#fff;
+        }
+    }
+    #disclaimers {
+        background-color: #32383a;
+    }
+    
+}
 body {
     background-color: #fff;
     font-size: 1rem;
@@ -86,7 +151,64 @@ header.navbar {
     }
 }
 #listaCategorias {
-    .categoria {
+    overflow-x: hidden;
+    .categoria {        
+        position: relative;
+        padding-left: 5.275%;
+        .backSlide {         
+            font-family: 'sky-icons' !important;  
+            font-size:24px;
+            position: absolute;
+            top: 100px;
+            left: -32px;
+            width: 64px;
+            height: 64px;
+            border-radius: 32px;
+            transition: ease;
+            transition-duration: 200ms;
+            color: #fff;
+            border: 0;
+            opacity: 0;
+        }
+        .backSlide:hover { 
+            background-color:#43494b;   
+            opacity: 1;         
+        }
+        .backSlide span {
+            margin-left: 30px;
+        }
+        .backSlide span::before {
+            content: "\e918";
+        }
+        .forwardSlide {         
+            font-family: 'sky-icons' !important;  
+            font-size:24px;
+            position: absolute;
+            top: 100px;
+            right: -32px;
+            width: 64px;
+            height: 64px;
+            border-radius: 32px;
+            transition: ease;
+            transition-duration: 200ms;
+            color: #fff;
+            border: 0;
+            opacity: 0;
+        }
+        .forwardSlide:hover { 
+            background-color: #43494b;   
+            opacity: 1;         
+        }
+        .forwardSlide span {
+            margin-right: 30px;
+        }
+        .forwardSlide span::before {
+            content: "\e91a";
+        }
+        h2 {
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
         .contemFilmes {
             width: 100%;
             overflow: hidden;
@@ -136,5 +258,74 @@ header.navbar {
             padding: 0;
         } 
     }
-    
+    #skyApp {
+        display: inline-block;
+        border-radius: 11px;
+        color:#6f6f6f;
+        font-weight: bold;
+        margin-top: 30px;
+        img {
+            width:50px;
+            float:left;
+            margin-right: 10px;
+        }
+    }
+    #stores {
+        margin-left: 40px;
+        button {
+            width:160px;
+            height:54px;
+            display:inline-block;
+            border: 0;
+            margin-left:20px;
+            transition: ease;
+            transition-duration: 200ms;
+        }
+        button:hover, button:focus {
+            filter: invert(27%) sepia(51%) saturate(2878%) hue-rotate(346deg) brightness(104%) contrast(97%);
+        }
+        #apple {
+            background: url('./images/button-apple-store-light-default.svg') no-repeat;            
+        }
+        #google {
+            background: url('./images/button-google-play-light-default.svg') no-repeat;
+        }
+    }
+    .links {
+        h3 {
+            font-weight:bold;
+            font-size:1rem;
+            color: rgba(0, 0, 0, 0.4);
+            margin-top: 30px;
+            a {
+                color: rgba(0, 0, 0, 0.8);
+                text-decoration: none;
+            }
+        }
+        ul {
+            list-style: none none;
+            padding:0;
+            li {
+                margin-bottom: 5px;
+                a {
+                    color:#000;
+                    font-size: 0.875rem;
+                    text-decoration: none;
+                }
+            }
+        }
+    } 
+}
+#bottomLinks {
+    background-color:#fff;
+    line-height: 2.4rem;
+    a {
+        color:#000;
+        text-decoration: none;
+    }
+}
+#disclaimers {
+    background-color: #f1f2fa;
+    font-size: 0.9rem;
+    padding: 20px 0 10px 0;
 }
